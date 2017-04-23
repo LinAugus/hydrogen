@@ -1,0 +1,26 @@
+{
+  "name": "hydrogen",
+  "version": "1.0.0",
+  "description": "photo perfect",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LinAugus/hydrogen.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LinAugus/hydrogen/issues"
+  },
+  "homepage": "https://github.com/LinAugus/hydrogen#readme",
+  "dependencies": {
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-router": "^7.1.1",
+    "mysql": "^2.13.0"
+  }
+}

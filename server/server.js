@@ -2,17 +2,18 @@
  * server入口文件
  */
 
+require('babel-register');
 const Koa = require('koa');
 const bodyParser = require('koa-bodyparser');
 const config = require('./config');
 const routers = require('./routers/index');
-const token = require('./midddlewares/token');
+const token = require('./middlewares/token');
 const app = new Koa();
 
 // 配置ctx.body中间件
 app.use(bodyParser());
 
-app.use(token.verifyTokenBefore);
+// app.use(token.verifyTokenBefore);
 
 // 初始化路由中间件
 app.use(routers.routes()).use(routers.allowedMethods())

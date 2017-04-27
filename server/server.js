@@ -12,12 +12,13 @@ const app = new Koa();
 // 配置ctx.body中间件
 app.use(bodyParser());
 
-console.log(token);
-
-app.use(token.registerToken);
+app.use(token.verifyTokenBefore);
 
 // 初始化路由中间件
 app.use(routers.routes()).use(routers.allowedMethods())
+
+// 用户登录成功设置token
+app.use(token.registerToken);
 
 // 监听启动端口
 app.listen( config.port || 9000)

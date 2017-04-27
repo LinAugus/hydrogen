@@ -22,10 +22,10 @@ let query = function(sql, values) {
             } else {
                 // 执行操作
                 connection.query(sql, values, (err, rows) => {
-
                     if (err) {
                         reject(err)
                     } else {
+                        console.log(rows);
                         resolve(rows)
                     }
                     // 释放连接
@@ -44,43 +44,42 @@ let db = {
     },
 
     findDataById(table, id) {
-        let _sql = "SELECT * FROM ? WHERE id = ? "
+        let _sql = "SELECT * FROM ?? WHERE id = ? "
         return query(_sql, [table, id])
     },
 
-    findDataByField(table, field, obj ) {
-        let _sql = "SELECT ? FROM ? WHERE ? = ? ";
-
-        return query(_sql, [field, table ])
+    findByAll(tabel, field, option ) {
+        let _sql = "SELECT * FROM ?? WHERE ?? = ? ";
+        return query(_sql, [tabel, field, option]);
     },
 
     findDataByPage(table, keys, start, end) {
-        let _sql = "SELECT ? FROM ?  LIMIT ? , ?"
+        let _sql = "SELECT ?? FROM ??  LIMIT ? , ?"
         return query(_sql, [keys, table, start, end])
     },
 
     insertData(table, values) {
-        let _sql = "INSERT INTO ? SET ?"
+        let _sql = "INSERT INTO ?? SET ?"
         return query(_sql, [table, values])
     },
 
     updateData(table, values, id) {
-        let _sql = "UPDATE ? SET ? WHERE id = ?"
+        let _sql = "UPDATE ?? SET ? WHERE id = ?"
         return query(_sql, [table, values, id])
     },
 
     deleteDataById(table, id) {
-        let _sql = "DELETE FROM ? WHERE id = ?"
+        let _sql = "DELETE FROM ?? WHERE id = ?"
         return query(_sql, [table, id])
     },
 
     select(table, keys) {
-        let _sql = "SELECT ? FROM ? "
+        let _sql = "SELECT ?? FROM ?? "
         return query(_sql, [keys, table])
     },
 
     count(table) {
-        let _sql = "SELECT COUNT(*) AS total_count FROM ? "
+        let _sql = "SELECT COUNT(*) AS total_count FROM ?? "
         return query(_sql, [table])
     },
 }

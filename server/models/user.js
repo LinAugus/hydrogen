@@ -8,8 +8,7 @@ const user = {
     },
 
     async verify(model) {
-        let result = await mysql.findDataByField('hy_user', model);
-        console.log(result);
+        let result = await mysql.findByAll('hy_user', 'username', model['username']);
         return result;
     }
 }

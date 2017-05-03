@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # hydrogen
 
 a photo opeation app
@@ -31,3 +32,6 @@ TODO:
   - utils          // 工具包
 config.js
 ```
+=======
+#hydrogen
+>>>>>>> b2fe763fffa0f97ec13f7f4103f5b0599b292bd7

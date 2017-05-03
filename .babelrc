@@ -3,7 +3,12 @@
     ["env", {
       "targets": {
         "node": true
-      }
-    }]
+      },
+      "modules": false
+    }],
+    "react"
+  ],
+  "plugins": [
+    "react-hot-loader/babel"
   ]
 }

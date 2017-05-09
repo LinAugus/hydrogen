@@ -20,7 +20,7 @@ let config = {
     output: {
         path: BUILD_DIR,
         filename: '[name].min.js',
-        publicPath: '/'
+        publicPath: 'http://localhost:9999/'
     },
     resolve: {
         extensions: ['.js', '.jsx'],
@@ -31,26 +31,27 @@ let config = {
     module: {
         rules: [
             {
-                test: /\.js|jsx$/,
-                loader: 'babel-loader',
-                include: path.join(__dirname, 'app'),
-                exclude: /node_modules/
-            },
-            {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: ['css-loader', 'postcss-loader']
                 })
+            },
+            {
+                test: /\.js|jsx$/,
+                loader: 'babel-loader',
+                include: path.join(__dirname, 'app'),
+                exclude: /node_modules/
             }
         ]
     },
     plugins: [
-        new ExtractTextPlugin('css/styles.css'),
+        new ExtractTextPlugin('css/styles.[name].[id].[contenthash].css'),
 
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'app/index.html')
         }),
+
         new webpack.optimize.CommonsChunkPlugin({ names: ['vendor', 'manifest'] }),
 
         new webpack.HotModuleReplacementPlugin(),

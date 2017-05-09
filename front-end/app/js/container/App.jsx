@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'normalize.css';
+import './App.css'
 
 import HelloWorld from 'components/HelloWorld';
 
